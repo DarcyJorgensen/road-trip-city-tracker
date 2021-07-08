@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 const baseUrl =
   " https://api.troposphere.io/forecast/48.5,11.123?token=63c516e447ec873e12083ad7f3eac0183034ab73058835f9eb";
+("https://api.troposphere.io/place/name/Munic?token=63c516e447ec873e12083ad7f3eac0183034ab73058835f9eb");
 
 export default function useFetch(url) {
   const [data, setData] = useState(null);
