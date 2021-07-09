@@ -53,3 +53,30 @@
 .flex-columm {
   flex-direction: column;
 }
+
+.trip-display-container {
+  flex-basis: calc(100% / 2 - 25px);
+  margin: 10px;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: cadetblue;
+  padding: 5px;
+}
+
+.trip-display {
+  max-width: 100%;
+  display: block;
+  margin: 5px auto;
+  max-height: 300px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.saved-trip-button {
+  width: 50%;
+  display: block;
+  margin: auto auto 0px auto;
+  padding: 5px;
+}

@@ -22,7 +22,7 @@ function TripDisplay({
       <img className="trip" alt="on the road again" src={url} />
       {isSavedTrip && (
         <button
-          className="btn save-trip-btn"
+          className="button save-trip-button"
           onClick={() => deleteSavedTrip(name)}
         >
           Delete Saved Trip
@@ -30,7 +30,7 @@ function TripDisplay({
       )}
       {!isSavedTrip && (
         <button
-          className="btn save-trip-btn"
+          className="button save-trip-button"
           onClick={() =>
             addSavedTrip({
               time,
