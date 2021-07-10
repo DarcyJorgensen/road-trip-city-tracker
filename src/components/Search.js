@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import TripDisplay from "./TripDisplay";
-import { connect } from "readct-redux";
+import { connect } from "react-redux";
 import useFetch from "../hooks/useFetch";
 import { setSearch, addSavedTrip, deleteSavedTrip } from "../redux/actions";
 
@@ -53,24 +53,12 @@ const Search = ({
       {error && <div className="text-center">{error}</div>}
       {search && (
         <div className="flex-wrap">
-          {search.map((name) => (
-            <TripDisplay
-              addSavedTrip={addSavedTrip}
-              deleteSavedTrip={deleteSavedTrip}
-              time={time}
-              type={type}
-              temperature={temperature}
-              temperatureMin={temperatureMin}
-              temperatureMax={temperatureMax}
-              rain={rain}
-              snow={snow}
-              name={name}
-              latitude={latitude}
-              longitude={longitude}
-              country={country}
-              key={name}
-            />
-          ))}
+          <TripDisplay
+            addSavedTrip={addSavedTrip}
+            deleteSavedTrip={deleteSavedTrip}
+            // weatherMain={weather.main}
+            // city={city.id}
+          />
         </div>
       )}
     </div>

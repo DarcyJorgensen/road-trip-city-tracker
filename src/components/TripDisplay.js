@@ -4,26 +4,19 @@ function TripDisplay({
   isSavedTrip,
   addSavedTrip,
   deleteSavedTrip,
-  time,
-  type,
-  temperature,
-  temperatureMin,
-  temperatureMax,
-  rain,
-  snow,
-  name,
-  latitude,
-  longitude,
-  country,
+  weatherMain,
+  weatherDescription,
+  weatherIcon,
+  mainTemp,
 }) {
   return (
     <div className="trip-container flex-column flex-wrap">
-      <h4 className="text-center"> {name}</h4>
-      <img className="trip" alt="on the road again" src={url} />
+      <h4 className="text-center"> {}</h4>
+      <img className="trip" alt="on the road again" />
       {isSavedTrip && (
         <button
           className="button save-trip-button"
-          onClick={() => deleteSavedTrip(name)}
+          onClick={() => deleteSavedTrip()}
         >
           Delete Saved Trip
         </button>
@@ -33,17 +26,11 @@ function TripDisplay({
           className="button save-trip-button"
           onClick={() =>
             addSavedTrip({
-              time,
-              type,
-              temperature,
-              temperatureMin,
-              temperatureMax,
-              rain,
-              snow,
-              name,
-              latitude,
-              longitude,
-              country,
+              weatherMain,
+              weatherDescription,
+              weatherIcon,
+              mainTemp,
+              // city,
             })
           }
         >

@@ -1,5 +1,4 @@
 import React, { useState, useCallback } from "react";
-import { connect } from "react-redux";
 import {
   BrowserRouter as Router,
   NavLink,
@@ -21,7 +20,7 @@ function App() {
   }, []);
 
   const deleteSavedTrips = useCallback((name) => {
-    setSavedTrips((curr) => curr.filter((val) => val.name != name));
+    setSavedTrips((curr) => curr.filter((val) => val.name !== name));
   }, []);
   return (
     <Router>

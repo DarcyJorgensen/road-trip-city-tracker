@@ -6,22 +6,15 @@ const SavedTrips = ({ tripDisplay, deleteSavedTrips, loggedInUser }) => {
     <>
       <h2 className="text-center"> Saved Trips for {loggedInUser}</h2>
       <div className="flex-wrap">
-        {savedTrips.map((name) => (
+        {SavedTrips.map((id) => (
           <TripDisplay
-            id={name.id}
-            isSavedTrip={true}
+            id={id}
+            isSavedTrips={true}
             deleteSavedTrips={deleteSavedTrips}
-            name={name}
-            time={time}
-            type={type}
-            temperature={temperture}
-            temperatureMin={temperatureMin}
-            temperatureMax={temperatureMax}
-            rain={rain}
-            snow={snow}
-            latitude={latitude}
-            longitude={longitude}
-            country={country}
+            // weatherMain={weather.main}
+            // weatherDescription={weather.description}
+            // weatherIcon={weather.icon}
+            // mainTemp={main.temp}
           />
         ))}
       </div>

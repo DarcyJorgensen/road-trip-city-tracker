@@ -16,4 +16,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, {})(ProtectedRoute)(Layout);
+export default connect(mapStateToProps, {})(ProtectedRoute);

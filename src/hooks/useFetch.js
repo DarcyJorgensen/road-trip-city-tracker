@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 
 const baseUrl =
-  " https://api.troposphere.io/forecast/48.5,11.123?token=63c516e447ec873e12083ad7f3eac0183034ab73058835f9eb";
-("https://api.troposphere.io/place/name/Munic?token=63c516e447ec873e12083ad7f3eac0183034ab73058835f9eb");
+  "https://home.openweathermap.org/api_keys?270d955726b35c066639b9dc60289428";
 
 export default function useFetch(url) {
   const [data, setData] = useState(null);
@@ -21,7 +20,7 @@ export default function useFetch(url) {
       setLoading(true);
       try {
         const response = await fetch(baseUrl + url);
-        if ((response, ok)) {
+        if (response.ok) {
           const json = await response.json();
           setData(json);
         } else {
