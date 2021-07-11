@@ -2,12 +2,12 @@ import React, { useEffect, useMemo, useState } from "react";
 import TripDisplay from "./TripDisplay";
 import { connect } from "react-redux";
 import useFetch from "../hooks/useFetch";
-import { setSearch, addSavedTrip, deleteSavedTrip } from "../redux/actions";
+import { setSearch, addSavedTrips, deleteSavedTrips } from "../redux/actions";
 
 const Search = ({
-  addSavedTrip,
-  deleteSavedTrip,
-  savedTrip,
+  addSavedTrips,
+  deleteSavedTrips,
+  savedTrips,
   username,
   setSearch,
   search,
@@ -16,8 +16,8 @@ const Search = ({
   const [query, setQuery] = useState("");
   const { data, loading, error } = useFetch(query);
   const cityId = useMemo(() => {
-    return savedTrip.map((val) => val.id);
-  }, [savedTrip]);
+    return savedTrips.map((city) => city.id);
+  }, [savedTrips]);
 
   useEffect(() => {
     if (data) {
@@ -55,8 +55,8 @@ const Search = ({
         <div className="flex-wrap">
           {search.map((city) => (
             <TripDisplay
-              addSavedTrip={addSavedTrip}
-              deleteSavedTrip={deleteSavedTrip}
+              addSavedTrips={addSavedTrips}
+              deleteSavedTrips={deleteSavedTrips}
               // weatherMain={weather.main}
               // city={city.id}
             />
@@ -76,8 +76,8 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-  deleteSavedTrip,
-  addSavedTrip,
+  deleteSavedTrips,
+  addSavedTrips,
   setSearch,
 };
 

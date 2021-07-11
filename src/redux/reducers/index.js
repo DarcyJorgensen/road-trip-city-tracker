@@ -1,12 +1,12 @@
 import { combineReducers } from "redux";
 import searchReducer from "./searchReducer";
 import userReducer from "./userReducer";
-import savedtripsReducer from "./savedtripsReducer";
+import savedTripsReducer from "./savedTripsReducer";
 
 const rootReducer = combineReducers({
   search: searchReducer,
   user: userReducer,
-  savedtrips: savedtripsReducer,
+  savedTrips: savedTripsReducer,
 });
 
 export default rootReducer;

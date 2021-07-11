@@ -1,7 +1,7 @@
 import React from "react";
 import TripDisplay from "./TripDisplay";
 
-const SavedTrips = ({ tripDisplay, deleteSavedTrip, loggedInUser }) => {
+const SavedTrips = ({ tripDisplay, deleteSavedTrips, loggedInUser }) => {
   return (
     <>
       <h2 className="text-center"> Saved Trips for {loggedInUser}</h2>
@@ -10,7 +10,7 @@ const SavedTrips = ({ tripDisplay, deleteSavedTrip, loggedInUser }) => {
           <TripDisplay
             id={id}
             isSavedTrips={true}
-            deleteSavedTrip={deleteSavedTrip}
+            deleteSavedTrips={deleteSavedTrips}
             // weatherMain={weather.main}
             // weatherDescription={weather.description}
             // weatherIcon={weather.icon}

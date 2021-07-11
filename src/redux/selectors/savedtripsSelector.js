@@ -1,1 +1,1 @@
-export const savedtripsSelector = (state) => state.savedtrips;
+export const savedTripsSelector = (state) => state.savedTrips;

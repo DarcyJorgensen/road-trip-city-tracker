@@ -1,9 +1,9 @@
 import React from "react";
 
 function TripDisplay({
-  isSavedTrip,
-  addSavedTrip,
-  deleteSavedTrip,
+  isSavedTrips,
+  addSavedTrips,
+  deleteSavedTrips,
   weatherMain,
   weatherDescription,
   weatherIcon,
@@ -13,19 +13,19 @@ function TripDisplay({
     <div className="trip-container flex-column flex-wrap">
       <h4 className="text-center"> {}</h4>
       <img className="trip" alt="on the road again" />
-      {isSavedTrip && (
+      {isSavedTrips && (
         <button
           className="button save-trip-button"
-          onClick={() => deleteSavedTrip()}
+          onClick={() => deleteSavedTrips()}
         >
-          Delete Saved Trip
+          Delete Saved Trips
         </button>
       )}
-      {!isSavedTrip && (
+      {!isSavedTrips && (
         <button
           className="button save-trip-button"
           onClick={() =>
-            addSavedTrip({
+            addSavedTrips({
               weatherMain,
               weatherDescription,
               weatherIcon,
@@ -34,7 +34,7 @@ function TripDisplay({
             })
           }
         >
-          Add Saved Trip
+          Add Saved Trips
         </button>
       )}
     </div>
