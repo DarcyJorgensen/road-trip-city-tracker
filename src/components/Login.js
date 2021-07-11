@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { setUser } from "../redux/actions";
 
-const Login = ({ setUser }) => {
+const Login = ({ setLoggedInUser }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -32,11 +32,11 @@ const Login = ({ setUser }) => {
         </div>
 
         <button
-          className="button"
+          className="btn"
           onClick={(e) => {
             e.preventDefault();
             if (username.length > 5 && password.length > 4) {
-              setUser(username);
+              setLoggedInUser(username);
             }
           }}
         >
@@ -47,12 +47,4 @@ const Login = ({ setUser }) => {
   );
 };
 
-function mapStateToProps(state) {
-  return {};
-}
-
-const mapDispatchToProps = {
-  setUser,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default Login;

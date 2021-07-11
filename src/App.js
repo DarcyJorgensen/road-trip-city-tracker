@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from "react";
+import { clearUser, clearSearch, clearSavedTrip } from "./redux/actions";
 import {
   BrowserRouter as Router,
   NavLink,
@@ -12,7 +13,7 @@ import SavedTrips from "./components/SavedTrips";
 import Search from "./components/Search";
 import ProtectedRoute from "./shared/ProtectedRoute";
 
-function App() {
+function App(username, clearUser, clearSearch, clearSavedTrips) {
   const [loggedInUser, setLoggedInUser] = useState(null);
   const [savedTrips, setSavedTrips] = useState([]);
   const addSavedTrips = useCallback((toAdd) => {
@@ -25,7 +26,7 @@ function App() {
   return (
     <Router>
       <nav className="flex-wrap">
-        {!loggedInUser && (
+        {!username && (
           <NavLink
             activeClassName="active"
             className="link text-center"
@@ -34,7 +35,7 @@ function App() {
             Login
           </NavLink>
         )}
-        {loggedInUser && (
+        {username && (
           <>
             <NavLink
               activeClassName="active"
@@ -47,7 +48,7 @@ function App() {
             <NavLink
               activeClassName="active"
               className="link text-center"
-              to="/savedtrips"
+              to="/savedTrips"
             >
               Saved Trips
             </NavLink>
@@ -56,8 +57,11 @@ function App() {
               className="link text-center"
               to="/login"
               onClick={() => {
-                setLoggedInUser(null);
-                setSavedTrips([]);
+                clearSavedTrips();
+                clearSearch();
+                clearUser();
+                // setLoggedInUser(null);
+                // setSavedTrips([]);
               }}
             >
               Logout
@@ -68,38 +72,22 @@ function App() {
 
       <main>
         <Switch>
-          <ProtectedRoute
-            path="/login"
-            reqUser={false}
-            loggedInUser={loggedInUser}
-          >
-            <Login setLoggedInUser={setLoggedInUser} />
-          </ProtectedRoute>
+          <ProtectedRoute path="/login" reqUser={false} component={Login} />
+          {/* <Login setLoggedInUser={setLoggedInUser} /> */}
 
           <ProtectedRoute
             path="/search"
             reqUser={true}
-            loggedInUser={loggedInUser}
-          >
-            <Search
-              loggedInUser={loggedInUser}
-              addSavedTrips={addSavedTrips}
-              deleteSavedTrips={deleteSavedTrips}
-              savedTrips={savedTrips}
-            />
-          </ProtectedRoute>
+            component={Search}
+            // loggedInUser={loggedInUser}
+          />
 
           <ProtectedRoute
             path="/savedTrips"
             reqUser={true}
-            loggedInUser={loggedInUser}
-          >
-            <SavedTrips
-              loggedInUser={loggedInUser}
-              savedTrips={savedTrips}
-              deleteSavedTrips={deleteSavedTrips}
-            />
-          </ProtectedRoute>
+            component={savedTrips}
+            // loggedInUser={loggedInUser}
+          />
 
           <Route path="*">
             <Redirect to="/login" />
@@ -110,21 +98,19 @@ function App() {
   );
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    username: state.user.username,
+  };
+}
 
-// function mapStateToProps(state) {
-//   return {
-//     username: state.user.username,
-//   };
-// }
+const mapDispatchToProps = {
+  clearUser,
+  clearSearch,
+  clearSavedTrips,
+};
 
-// // const mapDispatchToProps = {
-// //   clearUser,
-// //   clearSearch,
-// //   clearSavedTrips,
-// // };
-
-// export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 // function App() {
 //   return (
