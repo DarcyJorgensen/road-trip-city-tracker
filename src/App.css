@@ -5,20 +5,21 @@
 }
 
 .link,
-.button {
+.btn {
   color: black bold;
 }
 
 .link {
   flex-basis: calc(100% / 3 - 15px);
-  background-color: blue;
+  background-color: rgb(182, 182, 243);
   text-decoration: none;
   padding: 5px;
   flex-grow: 1;
+  border-color: black;
 }
 
 .active,
-.button {
+.btn {
   background-color: sandybrown;
 }
 
@@ -38,11 +39,11 @@
 }
 
 .form-field,
-.button {
+.btn {
   margin: 5px 10px;
 }
 
-.button {
+.btn {
   outline: none;
   border-radius: 15px;
   border: none;
@@ -57,7 +58,7 @@
 .trip-display-container {
   flex-basis: calc(100% / 2 - 25px);
   margin: 10px;
-  border: 2px solid black;
+  border: 2px solid rgb(216, 86, 86);
   border-radius: 10px;
   background-color: cadetblue;
   padding: 5px;
@@ -74,7 +75,7 @@
   text-align: center;
 }
 
-.saved-trip-button {
+.saved-trips-btn {
   width: 50%;
   display: block;
   margin: auto auto 0px auto;

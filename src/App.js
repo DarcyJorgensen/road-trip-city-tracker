@@ -1,5 +1,6 @@
-import React, { useState, useCallback } from "react";
-import { clearUser, clearSearch, clearSavedTrip } from "./redux/actions";
+import React from "react";
+import { connect } from "react-redux";
+import { clearUser, clearSearch, clearSavedTrips } from "./redux/actions";
 import {
   BrowserRouter as Router,
   NavLink,
@@ -13,16 +14,16 @@ import SavedTrips from "./components/SavedTrips";
 import Search from "./components/Search";
 import ProtectedRoute from "./shared/ProtectedRoute";
 
-function App(username, clearUser, clearSearch, clearSavedTrips) {
-  const [loggedInUser, setLoggedInUser] = useState(null);
-  const [savedTrips, setSavedTrips] = useState([]);
-  const addSavedTrips = useCallback((toAdd) => {
-    setSavedTrips((curr) => [...curr, toAdd]);
-  }, []);
+function App({ username, clearUser, clearSearch, clearSavedTrips }) {
+  //   const [loggedInUser, setLoggedInUser] = useState(null);
+  //   const [savedTrips, setSavedTrips] = useState([]);
+  //   const addSavedTrip = useCallback((toAdd) => {
+  //     setSavedTrips((curr) => [...curr, toAdd]);
+  //   }, []);
 
-  const deleteSavedTrips = useCallback((name) => {
-    setSavedTrips((curr) => curr.filter((val) => val.name !== name));
-  }, []);
+  //   const deleteSavedTrip = useCallback((city) => {
+  //     setSavedTrips((curr) => curr.filter((val) => val.city !== city));
+  //   }, []);
   return (
     <Router>
       <nav className="flex-wrap">
@@ -85,7 +86,7 @@ function App(username, clearUser, clearSearch, clearSavedTrips) {
           <ProtectedRoute
             path="/savedTrips"
             reqUser={true}
-            component={savedTrips}
+            component={SavedTrips}
             // loggedInUser={loggedInUser}
           />
 

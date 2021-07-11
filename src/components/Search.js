@@ -15,7 +15,7 @@ const Search = ({
   const [searchField, setSearchField] = useState("");
   const [query, setQuery] = useState("");
   const { data, loading, error } = useFetch(query);
-  const nameId = useMemo(() => {
+  const cityId = useMemo(() => {
     return savedTrip.map((val) => val.id);
   }, [savedTrip]);
 
@@ -39,7 +39,7 @@ const Search = ({
         </div>
 
         <button
-          className="button"
+          className="btn"
           onClick={(e) => {
             e.preventDefault();
             setQuery(searchField);
@@ -53,12 +53,14 @@ const Search = ({
       {error && <div className="text-center">{error}</div>}
       {search && (
         <div className="flex-wrap">
-          <TripDisplay
-            addSavedTrip={addSavedTrip}
-            deleteSavedTrip={deleteSavedTrip}
-            // weatherMain={weather.main}
-            // city={city.id}
-          />
+          {search.map((city) => (
+            <TripDisplay
+              addSavedTrip={addSavedTrip}
+              deleteSavedTrip={deleteSavedTrip}
+              // weatherMain={weather.main}
+              // city={city.id}
+            />
+          ))}
         </div>
       )}
     </div>

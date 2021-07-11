@@ -5,6 +5,6 @@ export function clearSearch() {
   return { type: CLEAR_SEARCH };
 }
 
-export function setSearch(search) {
-  return { type: SET_SEARCH, search };
+export function setSearch(Search) {
+  return { type: SET_SEARCH, Search };
 }
