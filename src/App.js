@@ -17,11 +17,11 @@ import ProtectedRoute from "./shared/ProtectedRoute";
 function App({ username, clearUser, clearSearch, clearSavedTrips }) {
   //   const [loggedInUser, setLoggedInUser] = useState(null);
   //   const [savedTrips, setSavedTrips] = useState([]);
-  //   const addSavedTrip = useCallback((toAdd) => {
+  //   const addSavedTrips = useCallback((toAdd) => {
   //     setSavedTrips((curr) => [...curr, toAdd]);
   //   }, []);
 
-  //   const deleteSavedTrip = useCallback((city) => {
+  //   const deleteSavedTrips = useCallback((city) => {
   //     setSavedTrips((curr) => curr.filter((val) => val.city !== city));
   //   }, []);
   return (
@@ -70,6 +70,8 @@ function App({ username, clearUser, clearSearch, clearSavedTrips }) {
           </>
         )}
       </nav>
+
+      <header>img.src = "./"</header>
 
       <main>
         <Switch>

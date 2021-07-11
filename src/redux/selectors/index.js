@@ -1,3 +1,3 @@
-export * from "./savedtripsSelector";
+export * from "./savedTripsSelector";
 export * from "./searchSelector";
 export * from "./userSelector";
