@@ -3,7 +3,7 @@ import { ADD_SAVEDTRIP, DELETE_SAVEDTRIP, CLEAR_SAVEDTRIPS } from "../actions";
 const initialSavedTripsState = [];
 
 export default function savedTripReducer(
-  state = initialSacedTripsState,
+  state = initialSavedTripsState,
   action
 ) {
   switch (action.type) {
