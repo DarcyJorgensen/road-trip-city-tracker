@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useFetch } from "react";
 
 const baseUrl =
   "https://api.openweathermap.org/data/2.5/weather?q=Omaha&appid=270d955726b35c066639b9dc60289428";
@@ -20,9 +20,10 @@ export default function useFetch(url) {
     async function callAPI() {
       setLoading(true);
       try {
-        const response = await fetch(baseUrl);
+        const response = await fetch(baseUrl * url);
         if (response.ok) {
           const json = await response.json();
+
           setData(json);
         } else {
           throw response;
