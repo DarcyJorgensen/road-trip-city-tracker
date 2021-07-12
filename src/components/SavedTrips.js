@@ -11,10 +11,10 @@ const SavedTrips = ({ tripDisplay, deleteSavedTrips, loggedInUser }) => {
             id={id}
             isSavedTrips={true}
             deleteSavedTrips={deleteSavedTrips}
-            // weatherMain={weather.main}
-            // weatherDescription={weather.description}
-            // weatherIcon={weather.icon}
-            // mainTemp={main.temp}
+            weatherMain={weather.main}
+            weatherDescription={weather.description}
+            weatherIcon={weather.icon}
+            mainTemp={main.temp}
           />
         ))}
       </div>

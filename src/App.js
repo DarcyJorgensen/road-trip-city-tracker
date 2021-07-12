@@ -71,7 +71,7 @@ function App({ username, clearUser, clearSearch, clearSavedTrips }) {
         )}
       </nav>
 
-      <header>img.src = "./"</header>
+      {/* <header>img.src = "./"</header> */}
 
       <main>
         <Switch>

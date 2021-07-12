@@ -57,8 +57,8 @@ const Search = ({
             <TripDisplay
               addSavedTrips={addSavedTrips}
               deleteSavedTrips={deleteSavedTrips}
-              // weatherMain={weather.main}
-              // city={city.id}
+              weatherMain={weather.main}
+              city={weather.id}
             />
           ))}
         </div>
