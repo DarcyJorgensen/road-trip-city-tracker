@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 
 const baseUrl =
-  "api.openweathermap.org/data/2.5/weather?q=Omaha&appid=270d955726b35c066639b9dc60289428";
-// "https://home.openweathermap.org/api_keys?270d955726b35c066639b9dc60289428";
+  "https://api.openweathermap.org/data/2.5/weather?appid=270d955726b35c066639b9dc60289428&q=";
 
 export default function useFetch(url) {
   const [data, setData] = useState(null);

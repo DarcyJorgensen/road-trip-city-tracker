@@ -6,7 +6,7 @@ const SavedTrips = ({ tripDisplay, deleteSavedTrips, loggedInUser }) => {
     <>
       <h2 className="text-center"> Saved Trips for {loggedInUser}</h2>
       <div className="flex-wrap">
-        {SavedTrips.map((id) => (
+        {/* {SavedTrips.map((id) => (
           <TripDisplay
             id={id}
             isSavedTrips={true}
@@ -16,7 +16,7 @@ const SavedTrips = ({ tripDisplay, deleteSavedTrips, loggedInUser }) => {
             weatherIcon={weather.icon}
             mainTemp={main.temp}
           />
-        ))}
+        ))} */}
       </div>
     </>
   );

@@ -21,13 +21,13 @@ const Search = ({
 
   useEffect(() => {
     if (data) {
-      setSearch(data.data);
+      setSearch(data);
     }
   }, [data]);
 
   return (
     <div>
-      <h2 className="text-center">Where do you want to go?</h2>
+      <h2 className="text-center">Where do you want to go? {username}</h2>
       <form className="form">
         <div className="form-field flex-wrap">
           <label htmlFor="search">Search City</label>
@@ -48,19 +48,18 @@ const Search = ({
           Search
         </button>
       </form>
-
       {loading && <div className="text-center"> Loading</div>}
       {error && <div className="text-center">{error}</div>}
       {search && (
         <div className="flex-wrap">
-          {search.map((city) => (
-            <TripDisplay
-              addSavedTrips={addSavedTrips}
-              deleteSavedTrips={deleteSavedTrips}
-              weatherMain={weather.main}
-              city={weather.id}
-            />
-          ))}
+          <TripDisplay
+            addSavedTrips={addSavedTrips}
+            deleteSavedTrips={deleteSavedTrips}
+            weatherMain={search.weather[0].main}
+            city={search.weather[0].id}
+            weatherDescription={search.weather[0].description}
+            mainTemp={search.main.temp}
+          />
         </div>
       )}
     </div>
