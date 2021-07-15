@@ -1,7 +1,9 @@
 import React from "react";
+import Connect from "react-redux";
+
 import TripDisplay from "./TripDisplay";
 
-const SavedTrips = ({ tripDisplay, deleteSavedTrips, loggedInUser }) => {
+const SavedTrips = ({ savedTrips, deleteSavedTrips, loggedInUser }) => {
   return (
     <>
       <h2 className="text-center"> Saved Trips for {loggedInUser}</h2>
@@ -22,7 +24,7 @@ const SavedTrips = ({ tripDisplay, deleteSavedTrips, loggedInUser }) => {
   );
 };
 
-const mapStateToProps = () => {
+const mapStateToProps = (city) => {
   return {
     savedTrips: state.savedTrips,
   };
