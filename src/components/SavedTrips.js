@@ -6,15 +6,15 @@ const SavedTrips = ({ tripDisplay, deleteSavedTrips, loggedInUser }) => {
     <>
       <h2 className="text-center"> Saved Trips for {loggedInUser}</h2>
       <div className="flex-wrap">
-        {SavedTrips.map((city) => (
+        {savedTrips.map((city) => (
           <TripDisplay
-            city={search.weather[0].id}
+            city={weather.id}
             isSavedTrips={true}
             deleteSavedTrips={deleteSavedTrips}
-            weatherMain={search.weather[0].main}
-            weatherDescription={search.weather[0].description}
+            weatherMain={weather.main}
+            weatherDescription={weather.description}
             // weatherIcon={weather.icon}
-            mainTemp={search.main.temp}
+            mainTemp={main.temp}
           />
         ))}
       </div>
@@ -22,4 +22,14 @@ const SavedTrips = ({ tripDisplay, deleteSavedTrips, loggedInUser }) => {
   );
 };
 
-export default SavedTrips;
+const mapStateToProps = () => {
+  return {
+    savedTrips: state.savedTrips,
+  };
+};
+
+const mapDispatchToProps = {
+  deleteSavedTrips,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SavedTrips);
