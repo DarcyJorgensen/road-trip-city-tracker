@@ -27,7 +27,7 @@ const Search = ({
 
   return (
     <div>
-      <h2 className="text-center">Where do you want to go? {username}</h2>
+      <h2 className="text-center">Where do you want to go {username} ?</h2>
       <form className="form">
         <div className="form-field flex-wrap">
           <label htmlFor="search">Search City</label>
