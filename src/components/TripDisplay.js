@@ -6,7 +6,7 @@ function TripDisplay({
   deleteSavedTrips,
   weatherMain,
   weatherDescription,
-  weatherIcon,
+  // weatherIcon,
   mainTemp,
 }) {
   const convert = useMemo(() => {
@@ -34,7 +34,6 @@ function TripDisplay({
             addSavedTrips({
               weatherMain,
               weatherDescription,
-              weatherIcon,
               mainTemp,
               // city,
             })
