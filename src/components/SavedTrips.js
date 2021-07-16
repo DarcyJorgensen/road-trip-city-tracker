@@ -1,6 +1,6 @@
 import React from "react";
-import Connect from "react-redux";
-
+import { deleteSavedTrips } from "../redux/actions";
+import { connect } from "react-redux";
 import TripDisplay from "./TripDisplay";
 
 const SavedTrips = ({ savedTrips, deleteSavedTrips, loggedInUser }) => {
@@ -10,13 +10,14 @@ const SavedTrips = ({ savedTrips, deleteSavedTrips, loggedInUser }) => {
       <div className="flex-wrap">
         {savedTrips.map((city) => (
           <TripDisplay
-            city={weather.id}
+            key={city.name}
+            city={city.name}
             isSavedTrips={true}
             deleteSavedTrips={deleteSavedTrips}
-            weatherMain={weather.main}
-            weatherDescription={weather.description}
+            weatherMain={city.weatherMain}
+            weatherDescription={city.weatherDescription}
             // weatherIcon={weather.icon}
-            mainTemp={main.temp}
+            mainTemp={city.mainTemp}
           />
         ))}
       </div>
@@ -24,7 +25,7 @@ const SavedTrips = ({ savedTrips, deleteSavedTrips, loggedInUser }) => {
   );
 };
 
-const mapStateToProps = (city) => {
+const mapStateToProps = (state) => {
   return {
     savedTrips: state.savedTrips,
   };

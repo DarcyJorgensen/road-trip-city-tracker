@@ -15,8 +15,8 @@ const Search = ({
   const [searchField, setSearchField] = useState("");
   const [query, setQuery] = useState("");
   const { data, loading, error } = useFetch(query);
-  const cityId = useMemo(() => {
-    return savedTrips.map((city) => city.id);
+  const cityName = useMemo(() => {
+    return savedTrips.map((city) => city.name);
   }, [savedTrips]);
 
   useEffect(() => {
@@ -55,8 +55,9 @@ const Search = ({
           <TripDisplay
             addSavedTrips={addSavedTrips}
             deleteSavedTrips={deleteSavedTrips}
+            isSavedTrips={cityName.includes(search.name)}
             weatherMain={search.weather[0].main}
-            city={search.weather[0].id}
+            city={search.name}
             weatherDescription={search.weather[0].description}
             mainTemp={search.main.temp}
           />

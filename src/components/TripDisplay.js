@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 
 function TripDisplay({
   isSavedTrips,
+  city,
   addSavedTrips,
   deleteSavedTrips,
   weatherMain,
@@ -11,10 +12,11 @@ function TripDisplay({
 }) {
   const convert = useMemo(() => {
     return ((mainTemp - 273.15) * 9) / 5 + 32;
-  });
+  }, [mainTemp]);
 
   return (
     <div className="trip-container flex-column flex-wrap">
+      <h4 className="text-center">City: {city}</h4>
       <h4 className="text-center">Main: {weatherMain}</h4>
       <h4 className="text-center">Main Temp: {convert}</h4>
       <h4 className="text-center">Description: {weatherDescription}</h4>
@@ -22,7 +24,7 @@ function TripDisplay({
       {isSavedTrips && (
         <button
           className="button save-trip-button"
-          onClick={() => deleteSavedTrips()}
+          onClick={() => deleteSavedTrips(city)}
         >
           Delete Saved Trips
         </button>
@@ -35,7 +37,7 @@ function TripDisplay({
               weatherMain,
               weatherDescription,
               mainTemp,
-              // city,
+              name: city,
             })
           }
         >

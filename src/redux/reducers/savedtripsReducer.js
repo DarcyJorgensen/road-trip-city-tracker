@@ -1,3 +1,8 @@
+import {
+  ADD_SAVEDTRIPS,
+  DELETE_SAVEDTRIPS,
+  CLEAR_SAVEDTRIPS,
+} from "../actions";
 const initialSavedTripsState = [];
 
 export default function savedTripsReducer(
@@ -5,11 +10,11 @@ export default function savedTripsReducer(
   action
 ) {
   switch (action.type) {
-    case "Add Saved Trip":
+    case ADD_SAVEDTRIPS:
       return [...state, action.city];
-    case "Delete Saved Trip":
-      return state.filter((city) => city.id !== action.id);
-    case "Clear Saved Trip":
+    case DELETE_SAVEDTRIPS:
+      return state.filter((city) => city.name !== action.name);
+    case CLEAR_SAVEDTRIPS:
       return [];
     default:
       return state;
