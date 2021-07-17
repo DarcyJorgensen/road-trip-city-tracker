@@ -6,7 +6,7 @@ import TripDisplay from "./TripDisplay";
 const SavedTrips = ({ savedTrips, deleteSavedTrips, loggedInUser }) => {
   return (
     <>
-      <h2 className="text-center"> Saved Trips for {loggedInUser}</h2>
+      <h2 className="text-center"> Saved Trips for {loggedInUser}.</h2>
       <div className="flex-wrap">
         {savedTrips.map((city) => (
           <TripDisplay
