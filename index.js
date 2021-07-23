@@ -12,4 +12,4 @@ app.use(express.static(__dirname + "/build"));
 app.get("*", (req, res) => {
   return res.sendFile("/build/index.html", { root: __dirname + "/" });
 });
-app.listen(PORT, () => console.log(`App listening on port ${port}!`));
+app.listen(PORT, () => console.log(`App listening on port ${PORT}!`));

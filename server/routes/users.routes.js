@@ -10,10 +10,18 @@ const {
 } = require("../models/users.model");
 
 router.post("/signup", (req, res) => {
+  const { username, password } = req.body;
+  if (validate(username, password)) {
+    return signup(res, username, password);
+  }
   return res.send("SIGNUP ROUTE");
 });
 
 router.post("/login", (req, res) => {
+  const { username, password } = req.body;
+  if (validate(username, password)) {
+    return login(res, username, password);
+  }
   return res.send("LOGIN ROUTE");
 });
 
@@ -25,6 +33,10 @@ router.post("/signup", (req, res) => {
 });
 
 router.post("/login", (req, res) => {
+  const { username, password } = req.body;
+  if (validate(username, password)) {
+    return login(res, username, password);
+  }
   return res.send("LOGIN ROUTE");
 });
 
