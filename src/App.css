@@ -2,6 +2,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  font-weight: bolder;
+  color: white;
 }
 
 .link,
@@ -88,7 +90,7 @@
 
 body {
   background-image: url(./images/road-trip-image3.png);
-  /* opacity: 0.1; */
+  /* image-opacity: 0.9; */
   max-width: 100%;
   height: auto;
   display: block;
