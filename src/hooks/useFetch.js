@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 const baseUrl =
   "https://api.openweathermap.org/data/2.5/weather?appid=270d955726b35c066639b9dc60289428&q=";
 
-export default function useFetch(url) {
+export default function useFetch(url, method, body = null) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -11,7 +11,7 @@ export default function useFetch(url) {
   useEffect(() => {
     setError(null);
     setData(null);
-    if (url.length < 3) {
+    if (url.length < 3 || (method === "POST" && body === null)) {
       setError("Search City must be at least 3 characters long.");
       return;
     }
