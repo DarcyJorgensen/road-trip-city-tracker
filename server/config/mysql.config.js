@@ -1,4 +1,5 @@
 const mysql = require("mysql");
+const util = require("util");
 const pool = mysql.createPool({
   host: process.env.DB_HOST,
   password: process.env.DB_PASSWORD,
@@ -10,3 +11,7 @@ const pool = mysql.createPool({
 pool.getConnection((err, connection) => {
   module.exports = pool;
 });
+
+const query = util.promisify(pool.query).bind(pool);
+
+module.exports = query;
