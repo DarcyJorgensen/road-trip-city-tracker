@@ -26,7 +26,7 @@ function TripDisplay({
           className="button save-trip-button"
           onClick={() => deleteSavedTrips(city)}
         >
-          Delete Saved Trips
+          Delete City
         </button>
       )}
       {!isSavedTrips && (
@@ -41,7 +41,7 @@ function TripDisplay({
             })
           }
         >
-          Add Saved Trips
+          Add Saved City
         </button>
       )}
     </div>

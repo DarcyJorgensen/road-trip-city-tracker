@@ -11,7 +11,7 @@
 
 .link {
   flex-basis: calc(100% / 3 - 15px);
-  background-color: rgb(182, 182, 243);
+  background-color: rgb(14, 176, 240);
   text-decoration: none;
   padding: 5px;
   flex-grow: 1;
@@ -86,9 +86,9 @@
 
 } */
 
-/* body {
-  background-image: url(./pu);
-  opacity: 0.1;
+body {
+  background-image: url(./images/road-trip-image3.png);
+  /* opacity: 0.1; */
   max-width: 100%;
   height: auto;
   display: block;
@@ -97,4 +97,4 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-} */
+}
