@@ -7,7 +7,8 @@ const {
 } = require("../models/saved_trips.model");
 
 router.post("/add", (req, res) => {
-  const { user_id, id } = req.body;
+  const { user_id, id, city, weather_main, weather_description, main_temp } =
+    req.body;
   if (
     user_id &&
     id &&
@@ -16,7 +17,15 @@ router.post("/add", (req, res) => {
     weather_description &&
     main_temp
   ) {
-    return addSavedTrips(res, user_id, id);
+    return addSavedTrips(
+      res,
+      user_id,
+      id,
+      city_name,
+      weather_main,
+      weather_description,
+      main_temp
+    );
   }
   return res.send({
     success: false,
