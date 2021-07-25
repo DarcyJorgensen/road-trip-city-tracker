@@ -12,8 +12,8 @@ async function signup(res, username, password) {
     if (users.length !== 0) {
       json.error = "Username already taken";
     } else {
-      const hashed = await bcrypt.hash(passowrd, 10);
-      await query("INSERT INTO users (password, username) VALUES (?,?", [
+      const hashed = await bcrypt.hash(password, 10);
+      await query("INSERT INTO users (password, username) VALUES (?,?)", [
         hashed,
         username,
       ]);
