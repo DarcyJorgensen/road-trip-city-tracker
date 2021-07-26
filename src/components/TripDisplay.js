@@ -11,7 +11,7 @@ function TripDisplay({
   mainTemp,
 }) {
   const convert = useMemo(() => {
-    return ((mainTemp - 273.15) * 9) / 5 + 32;
+    return Math.round((((mainTemp - 273.15) * 9) / 5 + 32) * 10) / 10;
   }, [mainTemp]);
 
   return (
