@@ -45,6 +45,10 @@ const Login = ({ setUser }) => {
       </form>
     </>
   );
+
+  function body() {
+    return <div className="body"></div>;
+  }
 };
 
 function mapStateToProps(state) {

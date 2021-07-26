@@ -7,6 +7,7 @@ const SavedTrips = ({ savedTrips, deleteSavedTrips, username }) => {
   return (
     <>
       <h2 className="text-center"> Saved Trips for {username}.</h2>
+      <h2 className="text-center"> </h2>
       <div className="flex-wrap">
         {savedTrips.map((city) => (
           <TripDisplay

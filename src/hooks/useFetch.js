@@ -12,7 +12,7 @@ export default function useFetch(url, method, body = null) {
     setError(null);
     setData(null);
     if (url.length < 3 || (method === "POST" && body === null)) {
-      setError("Search City must be at least 3 characters long.");
+      setError(<h3>Search City must be at least 3 characters long.</h3>);
       return;
     }
     // fetch API

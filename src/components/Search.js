@@ -33,6 +33,7 @@ const Search = ({
           <label htmlFor="search">Search City</label>
           <input
             id="search"
+            placeholder="Search City must be at least 3 characters long."
             value={searchField}
             onChange={(e) => setSearchField(e.target.value)}
           />
