@@ -14,7 +14,7 @@ const Login = ({ setUser }) => {
           <label htmlFor="username">Username</label>
           <input
             id="username"
-            placeholder="Eneter username at least 6 characters"
+            placeholder="Enter username at least 6 characters"
             onChange={(e) => setUsername(e.target.value)}
             value={username}
           />
